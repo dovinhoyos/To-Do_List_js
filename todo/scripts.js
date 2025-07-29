@@ -1,6 +1,7 @@
 const taskInput = document.getElementById("taskInput");
 const addButton = document.getElementById("addButton");
 const taskList = document.getElementById("taskList");
+const filterSelect = document.getElementById("filterSelect")
 
 const createTaskElement = (text) => {
   const li = document.createElement("li");
@@ -39,6 +40,28 @@ const handleAddTask = () => {
   taskInput.focus();
 };
 
+const filterTasks = () => {
+  const filter = filterSelect.value;
+  const tasks = document.querySelectorAll(".task");
+
+  tasks.forEach((task) => {
+    const isCompleted = task.classList.contains("completed");
+
+    switch (filter) {
+      case "all":
+        task.style.display = "flex";
+        break;
+      case "completed":
+        task.style.display = isCompleted ? "flex" : "none";
+        break;
+      case "pending":
+        task.style.display = !isCompleted ? "flex" : "none";
+        break;
+    }
+  });
+}
+
+filterSelect.addEventListener("change", filterTasks)
 addButton.addEventListener("click", handleAddTask);
 
 taskInput.addEventListener("keyup", (e) => {
