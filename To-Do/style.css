@@ -1,0 +1,136 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f5f6fa;
+  color: #333;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.todo-app {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Título */
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: #2d3436;
+}
+
+/* Input y botón */
+.task-input-section {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#taskInput {
+  flex: 1;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #dcdde1;
+  border-radius: 4px;
+}
+
+#addButton {
+  padding: 0.6rem 1rem;
+  background-color: #0984e3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#addButton:hover {
+  background-color: #086bc5;
+}
+
+/* Filtros */
+.filter-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#filterSelect {
+  padding: 0.4rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Tabla */
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.task-table thead {
+  background-color: #dfe6e9;
+}
+
+.task-table th,
+.task-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #dcdde1;
+}
+
+.task-table td input[type="checkbox"] {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.task-table .task-text {
+  cursor: pointer;
+}
+
+/* Tareas completadas */
+.task-table tr.completed .task-text {
+  text-decoration: line-through;
+  color: #999;
+}
+
+/* Botón eliminar */
+.delete-btn {
+  background: none;
+  border: none;
+  color: #d63031;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  color: #b71c1c;
+}
+
+/* Responsive (opcional) */
+@media (max-width: 600px) {
+  .task-table th:nth-child(3),
+  .task-table td:nth-child(3) {
+    text-align: right;
+  }
+
+  .task-input-section,
+  .filter-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
